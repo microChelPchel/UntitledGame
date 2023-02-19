@@ -8,9 +8,10 @@ public class Game implements Runnable {
     private GamePanel gamePanel;
 
     public Game () {
-        gamePanel = new GamePanel(this);
-        gameWindow = new GameWindow(gamePanel);
-        gamePanel.requestFocus();
+       // new LoginInForm();
+//        gamePanel = new GamePanel(this);
+//        gameWindow = new GameWindow(gamePanel);
+//        gamePanel.requestFocus();
     }
 
     public void render(Graphics g){
