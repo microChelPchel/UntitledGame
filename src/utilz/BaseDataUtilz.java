@@ -1,17 +1,20 @@
 package utilz;
-
+//TODO:*
 import java.io.*;
+import java.util.List;
 
-public abstract class BaseDataUtilz<T> {
+public class BaseDataUtilz<T> {
 
-    public T LoadData(String path) {
+    //TODO:падает если файла нет и записей нет
+
+    public List<T> LoadData(String path) {
         FileInputStream fis = null;
         ObjectInputStream in = null;
-        T object = null;
+        List<T> object = null;
         try {
             fis = new FileInputStream(path);
             in = new ObjectInputStream(fis);
-            object = (T) in.readObject();
+            object = (List<T>) in.readObject();
             in.close();
         } catch (IOException ex) {
             ex.printStackTrace();
@@ -21,7 +24,7 @@ public abstract class BaseDataUtilz<T> {
         return object;
     }
 
-    public void SaveData(String path, T object) {
+    public void SaveData(String path, List<T> object) {
         FileOutputStream fos = null;
         ObjectOutputStream out = null;
         try {
