@@ -3,8 +3,9 @@ package main;
 import inputs.KeyboardInputs;
 import inputs.MouseInputs;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JPanel;
+import java.awt.Graphics;
+import java.awt.Dimension;
 
 import static utilz.Constants.GameVaribles.GAME_HEIGHT;
 import static utilz.Constants.GameVaribles.GAME_WIDTH;

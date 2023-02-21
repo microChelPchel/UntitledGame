@@ -1,6 +1,6 @@
 package main;
 
-import java.awt.*;
+import java.awt.Graphics;
 
 public class Game implements Runnable {
 
@@ -25,4 +25,5 @@ public class Game implements Runnable {
     public void run() {
 
     }
+
 }
