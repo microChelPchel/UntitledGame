@@ -20,8 +20,7 @@ public class SignupForm extends JPanel implements ActionListener {
 
     public SignupForm() {
         authorizationAdapter = new AuthorizationAdapter();
-        setVisible(true);
-        setSize(700, 700);
+        setVisible(false);
         setLayout(null);
 
         nameLabel = new JLabel("Name:");

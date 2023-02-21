@@ -7,10 +7,12 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
-import java.awt.Color;
-import java.awt.Font;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import static utilz.Constants.GameVaribles.GAME_HEIGHT;
+import static utilz.Constants.GameVaribles.GAME_WIDTH;
 
 public class LoginInForm extends JPanel implements ActionListener {
 
@@ -24,7 +26,8 @@ public class LoginInForm extends JPanel implements ActionListener {
     public LoginInForm() {
         authorizationAdapter = new AuthorizationAdapter();
         setVisible(true);
-        setSize(800, 800);
+        Dimension size = new Dimension(GAME_WIDTH, GAME_HEIGHT);
+        setPreferredSize(size);
         setLayout(null);
         
         labelFormName = new JLabel("Login Form in Windows Form:");
