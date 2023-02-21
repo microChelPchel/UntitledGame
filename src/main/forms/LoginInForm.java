@@ -1,26 +1,32 @@
 package main.forms;
 
-import models.User;
-import utilz.BaseDataUtilz;
-//TODO: change *
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
+import adapters.AuthorizationAdapter;
 
-public class LoginInForm extends JFrame implements ActionListener {
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class LoginInForm extends JPanel implements ActionListener {
 
     private JLabel labelFormName, labelName, labelPassword;
     private JTextField textfieldEmail;
     private JButton buttonSumbit;
     private JButton buttonRegistration;
     private JPasswordField passwordField;
+    private AuthorizationAdapter authorizationAdapter;
 
     public LoginInForm() {
-        setTitle("Login Form in Windows Form");
+        authorizationAdapter = new AuthorizationAdapter();
         setVisible(true);
         setSize(800, 800);
         setLayout(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
         labelFormName = new JLabel("Login Form in Windows Form:");
         labelFormName.setForeground(Color.blue);
         labelFormName.setFont(new Font("Serif", Font.BOLD, 20));
@@ -50,18 +56,7 @@ public class LoginInForm extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        checkData();
-    }
-
-    private boolean checkData() {
-        String name = textfieldEmail.getText();
-        char[] password = passwordField.getPassword();
-        //TODO: переделать на относительный путь(почему то не видит)
-        var data  = new BaseDataUtilz<User>().LoadData("D:\\Users\\MGaming\\Desktop\\logins.json");
-        if (data==null) {
-            return false;
-        }
-        return true;
+        authorizationAdapter.checkData(textfieldEmail.getText(),passwordField.getPassword().toString());
     }
 
 }

@@ -12,6 +12,8 @@ public class Constants {
         public static final String NAME_AUTHORIZATION_FILE  ="";
         public static final String BUTTON_SPRITES = "";
 
+        public static final String PATH_LOGINS = "logins.json";
+
 
     }
 

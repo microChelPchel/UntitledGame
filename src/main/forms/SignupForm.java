@@ -1,32 +1,28 @@
 package main.forms;
 
-import models.User;
-import utilz.BaseDataUtilz;
+import adapters.AuthorizationAdapter;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class SignupForm extends JFrame implements ActionListener {
+public class SignupForm extends JPanel implements ActionListener {
 
-    private static final String PATH = "D:\\Users\\MGaming\\Desktop\\logins.json";
-
-    JLabel nameLabel, passwordLabel, repeatLabel;
-    JTextField textField;
-    JButton buttonRegister, buttonBack;
-    JPasswordField passwordField1, passwordField2;
+    private JLabel nameLabel, passwordLabel, repeatLabel;
+    private JTextField textField;
+    private JButton buttonRegister, buttonBack;
+    private JPasswordField passwordField1, passwordField2;
+    private AuthorizationAdapter authorizationAdapter;
 
     public SignupForm() {
+        authorizationAdapter = new AuthorizationAdapter();
         setVisible(true);
         setSize(700, 700);
         setLayout(null);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setTitle("Registration Form in Java");
 
         nameLabel = new JLabel("Name:");
         passwordLabel = new JLabel("Create Passowrd:");
@@ -66,28 +62,7 @@ public class SignupForm extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
-        saveData();
-    }
-
-    //вынести в произвольный класс от basedata
-    private void saveData() {
-
-        String login = nameLabel.getText();
-        String password = passwordField1.getPassword().toString();
-        //TODO: переделать на относительный путь(почему то не видит)
-        var utilz = new BaseDataUtilz<User>();
-        var data = utilz.LoadData(PATH);
-        if (data == null) {
-            data = new ArrayList<>();
-        }
-        User user = new User();
-        user.setLogin(login);
-        user.setPassword(password);
-        user.setVisibleName(login);
-        data.add(user);
-
-        utilz.SaveData(PATH, data);
-
+        authorizationAdapter.saveData(textField.getText(), passwordField1.getPassword().toString());
     }
 
 }
