@@ -61,6 +61,7 @@ public class SignupForm extends JPanel implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent e) {
+        //add message from the user
         authorizationAdapter.saveData(textField.getText(), passwordField1.getPassword().toString());
     }
 
