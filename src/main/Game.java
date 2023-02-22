@@ -34,14 +34,14 @@ public class Game implements Runnable {
 
     public Game () {
         initClasses();
-        List<JPanel> panels = new ArrayList<>();
-        panels.add(gamePanel);
-        panels.add(loginInForm);
-        panels.add(signupForm);
-        switchPanel(Gamestate.LOGIN);
-        gameWindow = new GameWindow(panels);
+//        List<JPanel> panels = new ArrayList<>();
+//        panels.add(gamePanel);
+//        panels.add(loginInForm);
+//        panels.add(signupForm);
+      //  switchPanel(Gamestate.LOGIN);
+        gameWindow = new GameWindow(gamePanel);
         //???
-        loginInForm.requestFocus();
+        gamePanel.requestFocus();
         startGameLoop();
     }
 
@@ -49,6 +49,9 @@ public class Game implements Runnable {
         gamePanel = new GamePanel(this);
         loginInForm = new LoginInForm();
         signupForm = new SignupForm();
+
+        //menu = new Menu(this);
+        playing = new Playing(this);
     }
 
     private void switchPanel(Gamestate gamestate) {
@@ -83,9 +86,7 @@ public class Game implements Runnable {
 
     public void render(Graphics g){
         switch (Gamestate.state) {
-            case MENU:
-                menu.draw(g);
-                break;
+//add menu later
             case PLAYING:
                 playing.draw(g);
                 break;
@@ -96,9 +97,7 @@ public class Game implements Runnable {
 
     private void update() {
         switch (Gamestate.state) {
-            case MENU:
-                menu.update();
-                break;
+//add menu later
             case PLAYING:
                 playing.update();
                 break;

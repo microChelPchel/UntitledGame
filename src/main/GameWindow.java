@@ -9,12 +9,13 @@ public class GameWindow {
 
     private JFrame jframe;
 
-    public GameWindow(List<JPanel> gamePanels) {
+    public GameWindow(JPanel gamePanels) {
 
         jframe = new JFrame();
 
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        gamePanels.forEach(panel -> jframe.add(panel));
+      //  gamePanels.forEach(panel -> jframe.add(panel));
+        jframe.add(gamePanels);
         jframe.setLocationRelativeTo(null);
         jframe.setResizable(false);
         jframe.pack();
@@ -24,7 +25,7 @@ public class GameWindow {
             //TODO:????
             @Override
             public void windowLostFocus(WindowEvent e) {
-                ((GamePanel)gamePanels.get(0)).getGame().windowFocusLost();
+                ((GamePanel)gamePanels).getGame().windowFocusLost();
             }
 
             @Override
