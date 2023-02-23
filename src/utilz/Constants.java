@@ -20,6 +20,9 @@ public class Constants {
         public static final int MAX_SIZE_PIC_W = 10;
         public static final int MAX_SIZE_PIC_H = 6;
 
+        public static final int SIZE_W = 120;
+        public static final int SIZE_H = 60;
+
         public static final int ATTACK_1 = 0;
         public static final int ATTACK_2 = 1;
         public static final int IDLE = 2;

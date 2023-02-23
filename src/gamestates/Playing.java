@@ -31,7 +31,7 @@ public class Playing extends State implements Statemethods {
     }
 
     private void initClasses() {
-        player = new Player(200, 200, (int) (60 * Game.SCALE), (int) (40 * Game.SCALE));
+        player = new Player(200, 200, (int) (80 * Game.SCALE), (int) ( 60 * Game.SCALE));
     }
 
     @Override
