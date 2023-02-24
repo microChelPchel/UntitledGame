@@ -3,6 +3,7 @@ package main;
 import gamestates.Gamestate;
 import gamestates.Menu;
 import gamestates.Playing;
+import levels.LevelManager;
 import main.forms.LoginInForm;
 import main.forms.SignupForm;
 
@@ -32,13 +33,13 @@ public class Game implements Runnable {
     private LoginInForm loginInForm;
     private SignupForm signupForm;
 
-    public Game () {
+    public Game() {
         initClasses();
 //        List<JPanel> panels = new ArrayList<>();
 //        panels.add(gamePanel);
 //        panels.add(loginInForm);
 //        panels.add(signupForm);
-      //  switchPanel(Gamestate.LOGIN);
+        //  switchPanel(Gamestate.LOGIN);
         gameWindow = new GameWindow(gamePanel);
         //???
         gamePanel.requestFocus();
@@ -49,13 +50,12 @@ public class Game implements Runnable {
         gamePanel = new GamePanel(this);
         loginInForm = new LoginInForm();
         signupForm = new SignupForm();
-
         //menu = new Menu(this);
         playing = new Playing(this);
     }
 
     private void switchPanel(Gamestate gamestate) {
-        switch (gamestate){
+        switch (gamestate) {
             case LOGIN:
                 setFalseVisible();
                 loginInForm.setVisible(true);
@@ -64,13 +64,12 @@ public class Game implements Runnable {
                 setFalseVisible();
                 signupForm.setVisible(true);
                 break;
-            //todo: все другие так
+            //все другие так
             default:
                 setFalseVisible();
                 gamePanel.setVisible(true);
                 break;
         }
-
     }
 
     private void startGameLoop() {
@@ -78,13 +77,13 @@ public class Game implements Runnable {
         gameThread.start();
     }
 
-    private void setFalseVisible(){
+    private void setFalseVisible() {
         gamePanel.setVisible(false);
         loginInForm.setVisible(false);
         signupForm.setVisible(false);
     }
 
-    public void render(Graphics g){
+    public void render(Graphics g) {
         switch (Gamestate.state) {
 //add menu later
             case PLAYING:

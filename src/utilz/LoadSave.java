@@ -1,16 +1,14 @@
 package utilz;
 
 import javax.imageio.ImageIO;
-//TODO: убрать  везде *
-import java.awt.*;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 
 public class LoadSave {
 
-    //TODO: RENAME
-    public static final String PLAYER_ATLAS = "1.png";
+    public static final String PLAYER_ATLAS = "sprites.png";
     //TODO:съехало надо обрезать или подрпавить, если хочешь можешь поставить его на задний фон
     public static final String BACKGROUND_IMG = "background.png";
 
@@ -18,7 +16,7 @@ public class LoadSave {
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         BufferedImage img = null;
-        InputStream is = LoadSave.class.getResourceAsStream("/" + fileName);
+        InputStream is = LoadSave.class.getResourceAsStream("/"+fileName);
         try {
             img = ImageIO.read(is);
 

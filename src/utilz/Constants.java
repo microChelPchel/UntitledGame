@@ -9,20 +9,30 @@ public class Constants {
 
         //Path to the files
         public static final String PATH_DICTIONARY = "";
-        public static final String NAME_AUTHORIZATION_FILE  ="";
+        public static final String NAME_AUTHORIZATION_FILE = "";
         public static final String BUTTON_SPRITES = "";
 
         public static final String PATH_LOGINS = "logins.json";
     }
 
+    /**
+     * Constants for load data player
+     * MAX_SIZE_PIC_W,MAX_SIZE_PIC_H = max count sprite for assets-1
+     */
     public static class PlayerConstants {
 
-        public static final int MAX_SIZE_PIC_W = 10;
+        public static final int MAX_SIZE_PIC_W = 9;
         public static final int MAX_SIZE_PIC_H = 6;
 
         public static final int SIZE_W = 120;
         public static final int SIZE_H = 60;
 
+        /*        public static final int ATTACK_1 = 1;
+                public static final int ATTACK_2 = 2;
+                public static final int IDLE = 3;
+                public static final int RUNNING = 4;
+                public static final int JUMP = 5;
+                public static final int FALLING = 6;*/
         public static final int ATTACK_1 = 0;
         public static final int ATTACK_2 = 1;
         public static final int IDLE = 2;
@@ -34,7 +44,7 @@ public class Constants {
             switch (player_action) {
                 case RUNNING:
                 case IDLE:
-                    return 10;
+                    return 5; //подумать -перепутаны x \\\/// y
                 case ATTACK_2:
                     return 6;
                 case ATTACK_1:
@@ -49,7 +59,6 @@ public class Constants {
         }
 
     }
-
 
 
 }

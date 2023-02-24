@@ -3,7 +3,7 @@ package entities;
 import main.Game;
 import utilz.LoadSave;
 
-import java.awt.*;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 import static utilz.Constants.PlayerConstants.*;
@@ -37,12 +37,11 @@ public class Player extends Entity {
     private void loadAnimations() {
 
         BufferedImage img = LoadSave.GetSpriteAtlas(LoadSave.PLAYER_ATLAS);
-    //TODO: fix bug Index 7 out of bounds for length 6 and get IDLE pattern not an attack
+    //TODO: x y
         animations = new BufferedImage[MAX_SIZE_PIC_W][MAX_SIZE_PIC_H];
         for (int j = 0; j < animations.length; j++)
             for (int i = 0; i < animations[j].length; i++)
                 animations[j][i] = img.getSubimage(i * SIZE_W, j * SIZE_H, SIZE_W, SIZE_H);
-
     }
 
     private void updateAnimationTick() {
@@ -58,6 +57,4 @@ public class Player extends Entity {
         }
 
     }
-
-
 }
