@@ -4,8 +4,8 @@ public class Constants {
 
     public class GameVaribles {
         //Windows size
-        public static final int GAME_HEIGHT = 720;
-        public static final int GAME_WIDTH = 1280;
+//        public static final int GAME_HEIGHT = 720;
+//        public static final int GAME_WIDTH = 1280;
 
         //Path to the files
         public static final String PATH_DICTIONARY = "";
@@ -27,18 +27,12 @@ public class Constants {
         public static final int SIZE_W = 120;
         public static final int SIZE_H = 60;
 
-        /*        public static final int ATTACK_1 = 1;
-                public static final int ATTACK_2 = 2;
-                public static final int IDLE = 3;
-                public static final int RUNNING = 4;
-                public static final int JUMP = 5;
-                public static final int FALLING = 6;*/
-        public static final int ATTACK_1 = 0;
-        public static final int ATTACK_2 = 1;
-        public static final int IDLE = 2;
-        public static final int RUNNING = 3;
-        public static final int JUMP = 4;
-        public static final int FALLING = 5;
+        public static final int ATTACK_1 = 1;
+        public static final int ATTACK_2 = 2;
+        public static final int IDLE = 3;
+        public static final int RUNNING = 4;
+        public static final int JUMP = 5;
+        public static final int FALLING = 6;
 
         public static int GetSpriteAmount(int player_action) {
             switch (player_action) {
@@ -59,6 +53,5 @@ public class Constants {
         }
 
     }
-
 
 }

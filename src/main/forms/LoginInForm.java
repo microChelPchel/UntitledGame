@@ -13,8 +13,8 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import static utilz.Constants.GameVaribles.GAME_HEIGHT;
-import static utilz.Constants.GameVaribles.GAME_WIDTH;
+import static main.Game.GAME_HEIGHT;
+import static main.Game.GAME_WIDTH;
 
 public class LoginInForm extends JPanel implements ActionListener {
 

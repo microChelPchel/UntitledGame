@@ -3,14 +3,8 @@ package main;
 import gamestates.Gamestate;
 import gamestates.Menu;
 import gamestates.Playing;
-import levels.LevelManager;
-import main.forms.LoginInForm;
-import main.forms.SignupForm;
 
-import javax.swing.JPanel;
 import java.awt.Graphics;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Game implements Runnable {
 
@@ -28,48 +22,21 @@ public class Game implements Runnable {
     public final static int TILES_IN_WIDTH = 26;
     public final static int TILES_IN_HEIGHT = 14;
     public final static int TILES_SIZE = (int) (TILES_DEFAULT_SIZE * SCALE);
-
-    //FORMS
-    private LoginInForm loginInForm;
-    private SignupForm signupForm;
+    public final static int GAME_WIDTH = TILES_SIZE * TILES_IN_WIDTH;
+    public final static int GAME_HEIGHT = TILES_SIZE * TILES_IN_HEIGHT;
 
     public Game() {
         initClasses();
-//        List<JPanel> panels = new ArrayList<>();
-//        panels.add(gamePanel);
-//        panels.add(loginInForm);
-//        panels.add(signupForm);
-        //  switchPanel(Gamestate.LOGIN);
+        gamePanel = new GamePanel(this);
         gameWindow = new GameWindow(gamePanel);
-        //???
         gamePanel.requestFocus();
+
         startGameLoop();
     }
 
     private void initClasses() {
-        gamePanel = new GamePanel(this);
-        loginInForm = new LoginInForm();
-        signupForm = new SignupForm();
-        //menu = new Menu(this);
+        menu = new Menu(this);
         playing = new Playing(this);
-    }
-
-    private void switchPanel(Gamestate gamestate) {
-        switch (gamestate) {
-            case LOGIN:
-                setFalseVisible();
-                loginInForm.setVisible(true);
-                break;
-            case REGISTRATION:
-                setFalseVisible();
-                signupForm.setVisible(true);
-                break;
-            //все другие так
-            default:
-                setFalseVisible();
-                gamePanel.setVisible(true);
-                break;
-        }
     }
 
     private void startGameLoop() {
@@ -77,26 +44,11 @@ public class Game implements Runnable {
         gameThread.start();
     }
 
-    private void setFalseVisible() {
-        gamePanel.setVisible(false);
-        loginInForm.setVisible(false);
-        signupForm.setVisible(false);
-    }
-
-    public void render(Graphics g) {
+    public void update() {
         switch (Gamestate.state) {
-//add menu later
-            case PLAYING:
-                playing.draw(g);
+            case MENU:
+                menu.update();
                 break;
-            default:
-                break;
-        }
-    }
-
-    private void update() {
-        switch (Gamestate.state) {
-//add menu later
             case PLAYING:
                 playing.update();
                 break;
@@ -105,8 +57,23 @@ public class Game implements Runnable {
             default:
                 System.exit(0);
                 break;
+
         }
     }
+
+    public void render(Graphics g) {
+        switch (Gamestate.state) {
+            case MENU:
+                menu.draw(g);
+                break;
+            case PLAYING:
+                playing.draw(g);
+                break;
+            default:
+                break;
+        }
+    }
+
 
     @Override
     public void run() {
@@ -154,7 +121,16 @@ public class Game implements Runnable {
     }
 
     public void windowFocusLost() {
+        if (Gamestate.state == Gamestate.PLAYING)
+            playing.getPlayer().resetDirBooleans();
+    }
 
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public Playing getPlaying() {
+        return playing;
     }
 
 }

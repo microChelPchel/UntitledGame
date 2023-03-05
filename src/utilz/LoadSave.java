@@ -10,9 +10,9 @@ public class LoadSave {
 
     public static final String PLAYER_ATLAS = "sprites.png";
     //TODO:съехало надо обрезать или подрпавить, если хочешь можешь поставить его на задний фон
-    public static final String BACKGROUND_IMG = "background.png";
-
-    public static final String LEVEL_ONE_DATA = "";
+    //public static final String BACKGROUND_IMG = "background.png";
+    public static final String LEVEL_ATLAS = "outside_sprites.png";
+    public static final String LEVEL_ONE_DATA = "level_one_data_long.png";
 
     public static BufferedImage GetSpriteAtlas(String fileName) {
         BufferedImage img = null;

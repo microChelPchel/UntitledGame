@@ -7,8 +7,9 @@ import javax.swing.JPanel;
 import java.awt.Graphics;
 import java.awt.Dimension;
 
-import static utilz.Constants.GameVaribles.GAME_HEIGHT;
-import static utilz.Constants.GameVaribles.GAME_WIDTH;
+import static main.Game.GAME_HEIGHT;
+import static main.Game.GAME_WIDTH;
+
 
 public class GamePanel  extends JPanel {
     private MouseInputs mouseInputs;
